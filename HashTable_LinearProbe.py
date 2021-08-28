@@ -37,15 +37,12 @@ class HashTableLinearProbe():
             self.arr[new_h] = (key, value)
 
     def __getitem__(self, key):
-        """Retrieves hashed (key, value)"""
+        """Retrieves value from (key, value)"""
         h = self.get_hash(key)
         prob_range = self.get_prob_range(h)
-        print(prob_range)
         for prob_index in prob_range:
             element = self.arr[prob_index]
-            if prob_index is None:
-                return
-            if element[0] == key:
+            if element and element[0] == key:
                 return element[1]
 
     def __delitem__(self, key):
@@ -71,10 +68,8 @@ with open('Resources/nyc_weather.csv', 'r') as file:
 for token in token_list:
     t[token[0]] = token[1]
 
-
-del t['Jan 9']
+del t['Jan 10']
 print(t.arr)
-print(t.get_hash('Jan 10'))
 print(t['Jan 10'])
 
 # List is created

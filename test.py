@@ -18,5 +18,10 @@ class Solution(object):
                     result.append(nums.index(second_num))
                     return result
 
-s = Solution()
-print(s.twoSum(nums, 6))
+arr = [('Jan 9', 35), ('Jan 10', 30), ('Jan 1', 27), ('Jan 2', 31), ('Jan 3', 23), ('Jan 4', 34),
+       ('Jan 5', 37), ('Jan 6', 38), ('Jan 7', 29), ('Jan 8', 30)]
+arr_two = [None, None, None]
+element = ('Jan 9', 35)
+
+if element in arr_two:
+    print(element)
