@@ -6,22 +6,31 @@ var = [*range(index, len(arr))] + [*range(0, index)]
 nums = [3, 3]
 tar = 6
 
+
 class Solution(object):
-    def twoSum(self, nums, target):
-        result = []
-        for num in nums:
-            for second_num in nums:
-                if nums.index(num) == nums.index(second_num):
-                    continue
-                elif num + second_num == target:
-                    result.append(nums.index(num))
-                    result.append(nums.index(second_num))
-                    return result
+    def romanToInt(self, s=str):
+        roman_dict = {
+            'M': 1000,
+            'D': 500,
+            'C': 100,
+            'L': 50,
+            'X': 10,
+            'V': 5,
+            'I': 1}
 
-arr = [('Jan 9', 35), ('Jan 10', 30), ('Jan 1', 27), ('Jan 2', 31), ('Jan 3', 23), ('Jan 4', 34),
-       ('Jan 5', 37), ('Jan 6', 38), ('Jan 7', 29), ('Jan 8', 30)]
-arr_two = [None, None, None]
-element = ('Jan 9', 35)
+        total = 0
+        prev_value = 0
+        for element in s[::-1]:
+            value = roman_dict[element]
+            total += value
+            if value < prev_value:
+                total -= 2 * value
+                print(f"total after minus: {total}")
 
-if element in arr_two:
-    print(element)
+            prev_value = value
+
+        return total
+
+
+s = Solution()
+print(s.romanToInt(''))
